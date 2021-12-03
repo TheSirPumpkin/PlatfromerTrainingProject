@@ -29,9 +29,9 @@ namespace Player.BLL
 
         private IPlayerHealth playerHealth;
 
-        public PlayerControllerStandalone(Transform player, Animator animator, Rigidbody2D rBody)
+        public PlayerControllerStandalone(IPlayerHealth playerHealth)
         {
-            playerData = Resources.Load<PlayerData>(PathConstants.CurrentPlayerPath);
+            playerData = ScriptableObjectsContainer.Instance.CurrentPlayerData;//Resources.Load<PlayerData>(PathConstants.CurrentPlayerPath);
             playerSpeed = playerData.MoveSpeed;
             lightAttackInput = playerData.LightAttackInput;
             heavyAttackInput = playerData.HeavyAttackInput;
@@ -39,14 +39,17 @@ namespace Player.BLL
             jumpButton = playerData.JumpButton;
             jumpHeigt = playerData.JumpHeight;
 
+            this.playerHealth = playerHealth;
+        }
+
+        public void InitFromView(Transform player, Animator animator, Rigidbody2D rBody)
+        {
             this.player = player;
             this.animator = animator;
             this.rBody = rBody;
 
             mainCollider = player.GetComponent<BoxCollider2D>();
-
-            playerHealth = AllServices.Container.Single<IPlayerHealth>();
-
+        
         }
 
         public void Move()

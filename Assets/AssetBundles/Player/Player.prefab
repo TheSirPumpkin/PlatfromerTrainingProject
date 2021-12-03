@@ -4890,6 +4890,7 @@ GameObject:
   - component: {fileID: 7686155781897328161}
   - component: {fileID: 1102718077243843710}
   - component: {fileID: 8351961458294678524}
+  - component: {fileID: 485394343970849069}
   - component: {fileID: 5975594266195951453}
   - component: {fileID: 5975594266195951452}
   - component: {fileID: 3847026566070070796}
@@ -5010,6 +5011,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerAnimator: {fileID: 5975594266195951453}
   AudioSource: {fileID: 6341884969627577755}
+--- !u!114 &485394343970849069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975594266195951448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82f94fab5078f4eb8381b2ce4faebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &5975594266195951453
 Animator:
   serializedVersion: 3

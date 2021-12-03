@@ -15,7 +15,7 @@ namespace Player.BLL
 
         public CameraFollowController()
         {
-            cameraFollowData = Resources.Load<CameraFollowData>(PathConstants.CameraDataPath);
+            cameraFollowData = ScriptableObjectsContainer.Instance.CameraFollowData;//Resources.Load<CameraFollowData>(PathConstants.CameraDataPath);
             followSpped = cameraFollowData.FollowSpeed;
             heightAdjustment = cameraFollowData.HeightAdjustment;
         }

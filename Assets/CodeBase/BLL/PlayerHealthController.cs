@@ -18,7 +18,7 @@ namespace Player.BLL
 
         public PlayerHealthController(IGameStopScreen gameStopScreen)
         {
-            playerHealthData = Resources.Load<PlayerHealthData>(PathConstants.PlayerHealthDataPath);
+            playerHealthData = ScriptableObjectsContainer.Instance.PlayerHealthData;//Resources.Load<PlayerHealthData>(PathConstants.PlayerHealthDataPath);
             health = playerHealthData.Health;
             hitClip = playerHealthData.HitClip;
             deathClip = playerHealthData.DeathClip;

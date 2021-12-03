@@ -4,7 +4,7 @@ namespace Services
 {
     public interface IGameLoaderController : IService
     {
-        void LoadLevelByPath(string path);
+        void LoadLevelByData(LevelsData level/*string path*/);
         LevelsData GetLoadedLevel();
     }
 }

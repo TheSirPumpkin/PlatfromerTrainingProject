@@ -7,9 +7,9 @@ namespace Infrastructure.BLL
     public class GameLoaderController : IGameLoaderController
     {
         private LevelsData currentLoadedLevel;
-        public void LoadLevelByPath(string path)
+        public void LoadLevelByData(LevelsData level)
         {
-            currentLoadedLevel = Resources.Load<LevelsData>(path);
+            currentLoadedLevel = level;//Resources.Load<LevelsData>(path);
             Application.LoadLevel(currentLoadedLevel.LevelToLoad);
         }
         public LevelsData GetLoadedLevel()

@@ -32,7 +32,7 @@ namespace Enemy.BLL
             this.audioAmbient = audioAmbient;
             this.player = player;
 
-            enemyData = Resources.Load<EnemyData>(PathConstants.EnenmySkeletonPath);
+            enemyData = ScriptableObjectsContainer.Instance.EnenmySkeletonData;//Resources.Load<EnemyData>(PathConstants.EnenmySkeletonPath);
             ambientEnableTimer = Random.Range(enemyData.AmbientEnableMin, enemyData.AmbientEnableMax);
             hp = enemyData.Hp;
             attackDistance = enemyData.AttackDistance;

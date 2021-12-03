@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 namespace Services
 {
     public interface IPlayeController : IService
@@ -6,5 +8,6 @@ namespace Services
         void Move();
         void Attack();
         void ResetAttack();
+        void InitFromView(Transform player, Animator animator, Rigidbody2D rBody);
     }
 }

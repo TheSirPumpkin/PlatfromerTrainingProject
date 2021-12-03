@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991f9ad6ee8cbd647a1f966539a6ad45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingLevel: Main
+  scriptableObjectsContainerPrefab: {fileID: 5580043163084254088, guid: 5d2ce75e03e5fd64dae5442e6fe663d4, type: 3}

@@ -1364,10 +1364,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1423404823, guid: a480a5d8c2b696842981fcd353e709f2, type: 3}
-      propertyPath: InitialLevelPath
-      value: ScriptableObjects/Infrastructure/LevelsData
-      objectReference: {fileID: 0}
     - target: {fileID: 4738756002868335031, guid: a480a5d8c2b696842981fcd353e709f2, type: 3}
       propertyPath: m_Name
       value: GameRunner

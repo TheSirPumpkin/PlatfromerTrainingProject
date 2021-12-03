@@ -26,7 +26,7 @@ namespace Hud.BLL
         public void Logout()
         {
             PlayerPrefs.SetString("Account", "");
-            gameLoaderController.LoadLevelByPath(PathConstants.MainMenuLEvelPath);
+            gameLoaderController.LoadLevelByData(ScriptableObjectsContainer.Instance.MainMenuLevelData);
         }
 
         public void Pause()

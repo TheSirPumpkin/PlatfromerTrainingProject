@@ -12,7 +12,7 @@ namespace Player.BLL
 
         public AttackDetection()
         {
-            attackData = Resources.Load<AttackDetectionData>(PathConstants.PlayerAttackStatsPath);
+            attackData = ScriptableObjectsContainer.Instance.PlayerAttackStatsData;//Resources.Load<AttackDetectionData>(PathConstants.PlayerAttackStatsPath);
 
             damage = attackData.Damage;
         }

@@ -37,7 +37,7 @@ public class WebLogin : MonoBehaviour
         // reset login message
         SetConnectAccount("");
         // load next scene
-        AllServices.Container.Single<IGameLoaderController>().LoadLevelByPath(PathConstants.InitialLevelPath);
+        AllServices.Container.Single<IGameLoaderController>().LoadLevelByData(ScriptableObjectsContainer.Instance.InitialLevelData);
     }
 
     public void OnSkip()
@@ -45,7 +45,7 @@ public class WebLogin : MonoBehaviour
         // burner account for skipped sign in screen
         PlayerPrefs.SetString("Account", "");
         // move to next scene
-        AllServices.Container.Single<IGameLoaderController>().LoadLevelByPath(PathConstants.InitialLevelPath);
+        AllServices.Container.Single<IGameLoaderController>().LoadLevelByData(ScriptableObjectsContainer.Instance.InitialLevelData);
     }
 }
 #endif

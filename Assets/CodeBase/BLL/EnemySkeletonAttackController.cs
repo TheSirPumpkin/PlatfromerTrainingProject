@@ -13,7 +13,7 @@ namespace Enemy.BLL
         private int damage;
         public EnemySkeletonAttackController()
         {
-            enemyAttackData = Resources.Load<EnemyAttackData>(PathConstants.EnemyAttackDataPath);
+            enemyAttackData = ScriptableObjectsContainer.Instance.EnemyAttackData;//Resources.Load<EnemyAttackData>(PathConstants.EnemyAttackDataPath);
             damage = enemyAttackData.SkeletonDamage;
         }
 

@@ -2,31 +2,37 @@
 using Hud.BLL;
 using Infrastructure.BLL;
 using Player.BLL;
+using Player.Inventroy.BLL;
 using Services;
+using UnityEngine;
 
 namespace Infrastructure
 {
     public class Bootsrapper
     {
-        private readonly AllServices Container;
+        private readonly AllServices container;
 
         public Bootsrapper(AllServices container)
         {
-            Container = container;
+            this.container = container;
 
             RegisterServices();
         }
         private void RegisterServices()
         {
-
-            Container.RegisterSingle<IGameLoaderController>(new GameLoaderController());
-            Container.RegisterSingle<IPlayerAttack>(new AttackDetection());
-            Container.RegisterSingle<ICameraMovement>(new CameraFollowController());
-            Container.RegisterSingle<IEnemySkeletonAttack>(new EnemySkeletonAttackController());
-            Container.RegisterSingle<IGameStopScreen>(new GameStopScreen(Container.Single<IGameLoaderController>()));
-            Container.RegisterSingle<IPlayerHealth>(new PlayerHealthController(Container.Single<IGameStopScreen>()));
-            Container.RegisterSingle<IHealthHud>(new HealthbarController(Container.Single<IPlayerHealth>()));
-            Container.RegisterSingle<ILevelCreator>(new LevelCreatorController());
+            container.RegisterSingle<IGameLoaderController>(new GameLoaderController());
+            container.RegisterSingle<IPlayerAttack>(new AttackDetection());
+            container.RegisterSingle<ICameraMovement>(new CameraFollowController());
+            container.RegisterSingle<IEnemySkeletonAttack>(new EnemySkeletonAttackController());
+            container.RegisterSingle<IGameStopScreen>(new GameStopScreen(container.Single<IGameLoaderController>()));
+            container.RegisterSingle<IPlayerHealth>(new PlayerHealthController(container.Single<IGameStopScreen>()));
+            container.RegisterSingle<IHealthHud>(new HealthbarController(container.Single<IPlayerHealth>()));
+            container.RegisterSingle<ILevelCreator>(new LevelCreatorController());
+            container.RegisterSingle<IPlayerInventory>(new PlayerInventoryController());
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
+            container.RegisterSingle<IPlayeController>(new PlayerControllerStandalone(container.Single<IPlayerHealth>()));
+#endif
+            container.RegisterSingle<IInventoryItem>(new InventoryItemController(container.Single<IPlayerInventory>()));
         }
     }
 }

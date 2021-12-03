@@ -12,9 +12,8 @@ namespace Player.PL
         private IPlayeController playeMovementController;
         private void Start()
         {
-#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
-            playeMovementController = new PlayerControllerStandalone(transform, GetComponent<Animator>(), GetComponent<Rigidbody2D>());
-#endif
+            playeMovementController = AllServices.Container.Single<IPlayeController>();
+            playeMovementController.InitFromView(transform, GetComponent<Animator>(), GetComponent<Rigidbody2D>());
         }
         private void Update()
         {

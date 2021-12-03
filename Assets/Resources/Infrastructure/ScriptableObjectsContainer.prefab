@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5088156624382972526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399975870883487118}
+  - component: {fileID: 5580043163084254088}
+  m_Layer: 0
+  m_Name: ScriptableObjectsContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1399975870883487118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5088156624382972526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5580043163084254088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5088156624382972526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c0d40f98118e044b374529f452dc39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentPlayerData: {fileID: 11400000, guid: 6c3089a37ecba304094493425a81e063, type: 2}
+  PlayerAttackStatsData: {fileID: 11400000, guid: 06ec621e23abdf645bab579e4d9edfa4, type: 2}
+  CameraFollowData: {fileID: 11400000, guid: 6534f705b48d04240b9435b3849f7b07, type: 2}
+  PlayerHealthData: {fileID: 11400000, guid: 1bfebb1522fb9234993e886afc12d760, type: 2}
+  EnenmySkeletonData: {fileID: 11400000, guid: dbcfae0de1c7f8844b836b2495630d8f, type: 2}
+  EnemyAttackData: {fileID: 11400000, guid: 469a38259ba87294c86db3b6f598c267, type: 2}
+  InitialLevelData: {fileID: 11400000, guid: e0d41e4db8f146f43b564566e5a03af7, type: 2}
+  MainMenuLevelData: {fileID: 11400000, guid: 7f01f5740f6655746b758f2c3e47d0e6, type: 2}
+  PlayerInventoryData: {fileID: 11400000, guid: 7a52e18ea68f0ca41911ae2063c062d4, type: 2}
