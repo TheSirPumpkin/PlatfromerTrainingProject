@@ -8,11 +8,12 @@ namespace Player.BLL
     {
         private PlayerData playerData;
 
-        private float playerSpeed;
-        private string lightAttackInput;
-        private string heavyAttackInput;
-        private string moveAxis;
-        private string jumpButton;
+        public float PlayerSpeed { get; }
+        public string LightAttackInput { get; }
+        public string HeavyAttackInput { get; }
+        public string MoveAxis { get; }
+        public string JumpButton { get; }
+        public string InventoryButton { get; }
 
         private Animator animator;
         private bool rotationPositive = true;
@@ -32,12 +33,13 @@ namespace Player.BLL
         public PlayerControllerStandalone(IPlayerHealth playerHealth)
         {
             playerData = ScriptableObjectsContainer.Instance.CurrentPlayerData;//Resources.Load<PlayerData>(PathConstants.CurrentPlayerPath);
-            playerSpeed = playerData.MoveSpeed;
-            lightAttackInput = playerData.LightAttackInput;
-            heavyAttackInput = playerData.HeavyAttackInput;
-            moveAxis = playerData.MoveAxis;
-            jumpButton = playerData.JumpButton;
+            PlayerSpeed = playerData.MoveSpeed;
+            LightAttackInput = playerData.LightAttackInput;
+            HeavyAttackInput = playerData.HeavyAttackInput;
+            MoveAxis = playerData.MoveAxis;
+            JumpButton = playerData.JumpButton;
             jumpHeigt = playerData.JumpHeight;
+            InventoryButton = playerData.InventoryButton;
 
             this.playerHealth = playerHealth;
         }
@@ -59,7 +61,7 @@ namespace Player.BLL
                 return;
             }
 
-            if (Input.GetAxis(moveAxis) == 0)
+            if (Input.GetAxis(MoveAxis) == 0)
             {
                 animator.SetInteger("Walk", 0);
             }
@@ -68,21 +70,21 @@ namespace Player.BLL
                 animator.SetInteger("Walk", 1);
             }
 
-            if (Input.GetAxis(moveAxis) > 0 && !rotationPositive)
+            if (Input.GetAxis(MoveAxis) > 0 && !rotationPositive)
             {
                 SetRotation(false, true, 1.5f, 0.5f);
             }
-            if (Input.GetAxis(moveAxis) < 0 && !rotationNegative)
+            if (Input.GetAxis(MoveAxis) < 0 && !rotationNegative)
             {
                 SetRotation(true, false, -1.5f, -0.5f);
             }
 
-            if (Input.GetButton(jumpButton))
+            if (Input.GetButton(JumpButton))
             {
                 DoJump();
             }
 
-            player.Translate(new Vector3(Input.GetAxis(moveAxis), 0, 0) * Time.deltaTime * playerSpeed);
+            player.Translate(new Vector3(Input.GetAxis(MoveAxis), 0, 0) * Time.deltaTime * PlayerSpeed);
 
         }
 
@@ -93,11 +95,11 @@ namespace Player.BLL
                 return;
             }
 
-            if (Input.GetButtonDown(lightAttackInput) && animator.GetInteger("LightAttack") != 1)
+            if (Input.GetButtonDown(LightAttackInput) && animator.GetInteger("LightAttack") != 1)
             {
                 animator.SetInteger("LightAttack", 1);
             }
-            if (Input.GetButtonDown(heavyAttackInput) && animator.GetInteger("HeavyAttack") != 1)
+            if (Input.GetButtonDown(HeavyAttackInput) && animator.GetInteger("HeavyAttack") != 1)
             {
                 animator.SetInteger("HeavyAttack", 1);
             }
@@ -122,11 +124,11 @@ namespace Player.BLL
 
         private float GetDirection()
         {
-            if (Input.GetAxis(moveAxis) > 0)
+            if (Input.GetAxis(MoveAxis) > 0)
             {
                 return 1;
             }
-            if (Input.GetAxis(moveAxis) < 0)
+            if (Input.GetAxis(MoveAxis) < 0)
             {
                 return -1;
             }

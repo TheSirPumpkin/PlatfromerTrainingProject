@@ -13,8 +13,11 @@ namespace Player.Inventroy.BLL
         {
             this.inventoryData = ScriptableObjectsContainer.Instance.PlayerInventoryData; // Resources.Load<InventoryData>(PathConstants.PlayerInventoryPath); 
         }
-
-        public void AddItem(ItemObject item, int value)
+        public InventoryData GetData()
+        {
+            return inventoryData;
+        }
+        public void AddItem(ItemObject item, int value = 1)
         {
             if (inventoryData.Items.ContainsKey(item))
             {
@@ -25,12 +28,16 @@ namespace Player.Inventroy.BLL
                 inventoryData.Items.Add(item, value);
             }
         }
-        public void RempveItem(ItemObject item, int value)
+        public void RemoveItem(ItemObject item, int amount)
         {
             if (inventoryData.Items.ContainsKey(item))
             {
-                inventoryData.Items[item] -= value;
-                if (inventoryData.Items[item] <= 0)
+                if (inventoryData.Items[item] >= amount)
+                {
+                    inventoryData.Items[item] -= amount;
+                }
+
+                if (inventoryData.Items[item] < amount)
                 {
                     inventoryData.Items.Remove(item);
                 }

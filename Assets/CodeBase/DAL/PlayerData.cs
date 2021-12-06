@@ -13,5 +13,6 @@ namespace Player.DAL
         public string MoveAxis;
         public string JumpButton;
         public float JumpHeight;
+        public string InventoryButton;
     }
 }

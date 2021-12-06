@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Inventory.Items.PL
 {
-    public abstract class InventoryItemView: MonoBehaviour
+    public abstract class InventoryItemView : MonoBehaviour
     {
         public ItemObject Item;
 
@@ -14,6 +14,7 @@ namespace Inventory.Items.PL
             if (collision.gameObject.GetComponent<PlayerInventoryView>())
             {
                 AllServices.Container.Single<IInventoryItem>().AddItem(Item);
+                AllServices.Container.Single<IInventoryScreen>().UpdateInventory();
                 Destroy(gameObject);
             }
         }

@@ -1,7 +1,4 @@
-﻿using Player.BLL;
-using Services;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Services;
 using UnityEngine;
 
 namespace Player.PL
@@ -12,16 +9,19 @@ namespace Player.PL
         public AudioSource AudioSource;
         private IPlayerHealth playerHealthController;
         private IHealthHud healthHud;
+        private IInventoryScreen inventoryScreen;
+
         private void Start()
         {
             playerHealthController = AllServices.Container.Single<IPlayerHealth>();
             healthHud = AllServices.Container.Single<IHealthHud>();
-            playerHealthController.InitPlayerHealthController(PlayerAnimator);
+            inventoryScreen= AllServices.Container.Single<IInventoryScreen>();
+
+            playerHealthController.InitPlayerHealthControllerFromView(PlayerAnimator, healthHud, inventoryScreen);
         }
         public void TakeDamage(int damage)
         {
             playerHealthController.TakeDamage(damage, AudioSource);
-            healthHud.SetHealth();
         }
     }
 }

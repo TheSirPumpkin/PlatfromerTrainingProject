@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bc60248ebc811479124bfd775bdaaf, type: 3}
   m_Name: SmallPotion
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 547653748520882814, guid: ba04987a43167ad4c8c1c08b22ff0108, type: 3}
   Type: 0
   Description: Restores small amount of HP
   Amount: 1

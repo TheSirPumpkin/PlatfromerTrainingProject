@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player.Inventroy.DAL;
+using UnityEngine;
 
 namespace Services
 {
@@ -6,11 +7,12 @@ namespace Services
     {
         bool Dead { get; set; }
         void TakeDamage(int damage, AudioSource audio);
+        void RestoreHealth(int amount, ItemObject item);
         void Die();
         int GetInitialHealth();
         int GetCurrentHealth();
         void Ressurect();
-        void InitPlayerHealthController(Animator playerAnimator);
+        void InitPlayerHealthControllerFromView(Animator playerAnimator, IHealthHud healthHud, IInventoryScreen inventoryScreen);
 
 
     }
